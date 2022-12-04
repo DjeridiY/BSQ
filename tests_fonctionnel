@@ -1,0 +1,12 @@
+#!/bin/bash
+
+path='./maps-intermediate/mouli_maps/*'
+
+for map in $path
+
+do
+    ./bsq maps-intermediate/mouli_maps/$(basename "$map") > result.txt
+    diff -q result.txt maps-intermediate/mouli_maps_solved/$(basename "$map")
+done
+
+rm result.txt
